@@ -1,0 +1,3 @@
+# Custom Suricata rule to detect HTTP GET requests sent to external networks
+
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"GET on WIRE"; flow:established,to_server; content:"GET"; http_method; sid:1000001; rev:1;)
